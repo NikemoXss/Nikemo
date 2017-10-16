@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -50,15 +51,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         message.setOnClickListener(this);
         main.setSelected(true);
         //okhttp封装的调用
-        RequestCenter.login("http://www.baidu.com", "111", "222", new DisposeDataListener() {
+           String url="https://fpdk.jsgs.gov.cn/WebQuery/yzmQuery?callback=jQuery110208025082128696883_1508119037778&fpdm=3200164320&r=0.548950827632563&_=1508119037785";
+
+        RequestCenter.login1(HomeActivity.this,url, "111", "222", new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
-
+                Log.e("onSuccess",responseObj.toString());
             }
 
             @Override
             public void onFailure(Object reasonObj) {
-
+                Log.e("onFailure",reasonObj.toString());
             }
         });
     }

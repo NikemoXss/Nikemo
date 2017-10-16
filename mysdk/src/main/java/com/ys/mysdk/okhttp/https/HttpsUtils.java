@@ -90,7 +90,7 @@ public class HttpsUtils {
             if (bksFile == null || password == null)
                 return null;
 
-            KeyStore clientKeyStore = KeyStore.getInstance("BKS");
+                KeyStore clientKeyStore = KeyStore.getInstance("BKS");
             clientKeyStore.load(bksFile, password.toCharArray());
             KeyManagerFactory keyManagerFactory = KeyManagerFactory
                     .getInstance(KeyManagerFactory.getDefaultAlgorithm());
